@@ -18,12 +18,13 @@ class Columna extends Mazo
 
 	protected function mostrarContenido(): void
 	{
-		for ($i = 0; $i < $this->ultima; $i++)
+		foreach ($this->cartas as $carta)
 		{
-			$this->cartas[$i]->mostrar();
+			$carta->mostrar();
 		}
 	}
 
+	// IMPLEMENTS "abstract public function apilable(Carta $carta): bool" in "Mazo"
 	public function apilable(Carta $carta): bool
 	{
 		assert($carta != null);
@@ -31,5 +32,11 @@ class Columna extends Mazo
 		return $this->vacia() && $carta->esRey() ||
 			!$this->vacia() && $this->cima()->bocaArriba() &&
 			$this->cima()->siguiente($carta) && $this->cima()->distintoColor($carta);
+	}
+
+	// OVERRIDES "protected function completa" in "Mazo"
+	protected function completa(): bool
+	{
+		return $this->numeroDeCartas() === Baraja::NUM_NUMEROS;
 	}
 }
