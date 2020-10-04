@@ -31,11 +31,6 @@ class Baraja extends Mazo
 		}
 	}
 
-	protected function mostrarContenido(): void
-	{
-		$this->cima()->mostrar();
-	}
-
 	// IMPLEMENTS "abstract public function apilable(Carta $carta): bool" in "Mazo"
 	public function apilable(Carta $carta): bool
 	{

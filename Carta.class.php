@@ -6,12 +6,10 @@ class Carta
 	private int $numero; // [0-12]
 	private bool $bocaArriba; // (bool)
 	private const PALOS = array('Picas', 'Treboles', 'Diamantes', 'Corazones'); // 0: Picas, 1: Treboles, 2: Diamantes, 3: Corazones
-	// private const NEGROS = new Intervalo(0,1); // No permitido en PHP
-	// private const ROJOS = new Intervalo(0,1); // En el ejemplo original en JAVA sería así, pero en PHP no está permitido, así que
-	// lo hago así:
+	public const LETRAS_PALOS = array('P', 'T', 'D', 'C');
 	private static Intervalo $negros;
 	private static Intervalo $rojos;
-	private const NUMEROS = array('As', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K');
+	public const NUMEROS = array('As', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K');
 
 	public function __construct(int $palo, int $numero)
 	{
@@ -82,5 +80,27 @@ class Carta
 			$palo = self::PALOS[$this->palo];
 		}
 		echo '(' . $numero . ' de ' . $palo . ')';
+	}
+
+	public function getNumero(): int
+	{
+		return $this->numero;
+	}
+
+	public function getPalo(): int
+	{
+		return $this->palo;
+	}
+
+	public function getColorChar(): string
+	{
+		if ($this->rojo())
+		{
+			return 'R';
+		}
+		else
+		{
+			return 'N';
+		}
 	}
 }

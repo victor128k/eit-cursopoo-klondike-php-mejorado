@@ -34,16 +34,37 @@ class Tapete
 		return $this->mazos[$posicion + 2];
 	}
 
+	public function getPalos(): array
+	{
+		$palos = array();
+
+		for ($i = 0; $i < Baraja::NUM_PALOS; $i++)
+		{
+			$palos[] = $this->getPalo($i);
+		}
+
+		return $palos;
+	}
+
 	public function getColumna(int $posicion): Columna
 	{
 		return $this->mazos[$posicion + 6];
 	}
 
+	public function getColumnas(): array
+	{
+		$columnas = array();
+
+		for ($i = 0; $i < Tapete::NUM_COLUMNAS; $i++)
+		{
+			$columnas[] = $this->getColumna($i);
+		}
+
+		return $columnas;
+	}
+
 	public function mostrar(): void
 	{
-		foreach ($this->mazos as $mazo)
-		{
-			$mazo->mostrar();
-		}
+		(new DrawingTapete($this))->show();
 	}
 }

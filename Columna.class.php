@@ -16,14 +16,6 @@ class Columna extends Mazo
 		}
 	}
 
-	protected function mostrarContenido(): void
-	{
-		foreach ($this->cartas as $carta)
-		{
-			$carta->mostrar();
-		}
-	}
-
 	// IMPLEMENTS "abstract public function apilable(Carta $carta): bool" in "Mazo"
 	public function apilable(Carta $carta): bool
 	{
@@ -38,5 +30,16 @@ class Columna extends Mazo
 	protected function completa(): bool
 	{
 		return $this->numeroDeCartas() === Baraja::NUM_NUMEROS;
+	}
+
+	public function getVisibleCards(): array
+	{
+		assert(!$this->vacia());
+		$visibleCards = array();
+		for ($i = 0; $i < $this->numeroDeCartas(); $i++)
+		{
+			$visibleCards[] = $this->cartas[$i];
+		}
+		return $visibleCards;
 	}
 }
