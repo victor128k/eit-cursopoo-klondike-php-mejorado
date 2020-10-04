@@ -7,10 +7,6 @@ class Mano extends Mazo
 		parent::__construct('Mano');
 	}
 
-	protected function mostrarContenido(): void
-	{
-	}
-
 	public function apilable(Carta $carta): bool
 	{
 		assert($carta !== null);

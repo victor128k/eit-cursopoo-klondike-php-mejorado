@@ -50,19 +50,6 @@ abstract class Mazo
 		$this->cartas[] = $carta;
 	}
 
-	public function mostrar(): void
-	{
-		echo PHP_EOL . $this->titulo . ': ';
-		if ($this->vacia())
-		{
-			echo '<VACIA>';
-		}
-		else
-		{
-			$this->mostrarContenido();
-		}
-	}
-
 	public function voltearCartas(): void
 	{
 		foreach ($this->cartas as $carta)
@@ -82,8 +69,6 @@ abstract class Mazo
 		}
 		return $numCartas - $i;
 	}
-
-	abstract protected function mostrarContenido(): void;
 
 	abstract public function apilable(Carta $carta): bool;
 }

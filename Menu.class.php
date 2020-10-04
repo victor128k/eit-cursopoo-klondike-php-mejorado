@@ -2,8 +2,6 @@
 
 class Menu
 {
-	// Ya sé que estas cosas no se comentan, pero en el código original en JAVA se ve la clase de los elementos al declarar el array.
-	// En PHP no permite definirlo, por eso pongo este comemntario al final que dice de qué tipo van a ser los elementos del array.
 	private array $opciones; // de clase Opcion (array de opciones polimorficas)
 	private int $cantidad;
 	private Salida $salida;

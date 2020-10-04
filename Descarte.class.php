@@ -10,8 +10,10 @@ class Descarte extends Mazo
 		parent::__construct('Descarte');
 	}
 
-	protected function mostrarContenido(): void
+	public function getVisibleCards(): array
 	{
+		assert(!$this->vacia());
+		$visibleCards = array();
 		$primeraVisible = $this->numeroDeCartas() - 3;
 		if ($primeraVisible < 0)
 		{
@@ -19,8 +21,9 @@ class Descarte extends Mazo
 		}
 		for ($i = $primeraVisible; $i < $this->numeroDeCartas(); $i++)
 		{
-			$this->cartas[$i]->mostrar();
+			$visibleCards[] = $this->cartas[$i];
 		}
+		return $visibleCards;
 	}
 
 	// IMPLEMENTS "abstract public function apilable(Carta $carta): bool" in "Mazo"

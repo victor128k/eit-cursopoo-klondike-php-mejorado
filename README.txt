@@ -1,3 +1,31 @@
+------------------------------------------------
+para ir mejorando... (no desarrollado todavía)
+------------------------------------------------
+- separación por modelos y controladores
+- separacion de vistas - crear unas clases de vistas para toda la interacción con el usuario y sacarla de los controladores
+- comandos mediante analizador de códigos en lugar de menú de opciones:
+Ejemplo:
+d  --> Sacar de baraja a descarte
+b  --> Voltear descarte en baraja
+dp1 --> Mover de descarte a palo 1
+dc3 --> Mover de descarte a columna 3
+p2c5 --> Mover de palo 2 a columna 5
+c6p1 --> Mover de columna 6 a palo 1
+c7c2 --> Mover (1 carta) de columna 7 a columna 2
+c73c2 --> Mover (3 cartas) de columna 7 a columna 2
+c711c2 --> mover (11 cartas) de columna 7 a columna 2
+c3  --> voltear última carta carta en columna 3 (si está bocaabajo)
+
+- para nota:
+Que el menú tenga una opción "cambiar a modo analizador de códigos" y haya también un código "menu"
+que permita cambiar entre modo nenú de opciones y modo analizador de códigos.
+
+
+------------------------------------------------
+v1.1.0
+------------------------------------------------
+### MODIFIED:
+- Modificada la forma en que se muestra el tapete y las cartas por consola para simular un tablero
 
 ------------------------------------------------
 v1.0.1
@@ -13,9 +41,7 @@ v1.0.1
 ### ADDED:
 + Agregada forma de mover una sub-columna entera de cartas bocaarriba del final de una columna al final de otra.
   + Creada nueva clase auxiliar "Mano" que hereda de "Mazo" para apilarle las cartas que vamos a mover y pasarselas de ahí a la columna destino.
-  - En el movimiento entre columnas, cuando hay más de una carta boca arriba al final de la columna origen, se pregunta cuántas cartas se quieren mover al destino.
-
-
+  + En el movimiento entre columnas, cuando hay más de una carta boca arriba al final de la columna origen, se pregunta cuántas cartas se quieren mover al destino.
 
 
 ------------------------------------------------
