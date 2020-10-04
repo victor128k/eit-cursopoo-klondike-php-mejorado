@@ -21,7 +21,7 @@ class MovimientoDescarteBaraja extends MovimientoOrigenDestino
 			{
 				parent::ejecutar();
 			}
-			$this->destino->voltear();
+			$this->destino->voltearCartas();
 		}
 	}
 }

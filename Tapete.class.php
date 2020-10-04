@@ -39,7 +39,7 @@ class Tapete
 		return $this->mazos[$posicion + 6];
 	}
 
-	public function Mostrar(): void
+	public function mostrar(): void
 	{
 		foreach ($this->mazos as $mazo)
 		{

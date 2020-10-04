@@ -20,10 +20,11 @@ class Baraja extends Mazo
 
 	private function barajar(): void
 	{
+		$numeroDeCartas = $this->numeroDeCartas();
 		for ($i = 0; $i < 1000; $i++)
 		{
-			$origen = random_int(0, $this->ultima - 1);
-			$destino = random_int(0, $this->ultima - 1);
+			$origen = random_int(0, $numeroDeCartas - 1);
+			$destino = random_int(0, $numeroDeCartas - 1);
 			$carta = $this->cartas[$origen];
 			$this->cartas[$origen] = $this->cartas[$destino];
 			$this->cartas[$destino] = $carta;
@@ -35,6 +36,7 @@ class Baraja extends Mazo
 		$this->cima()->mostrar();
 	}
 
+	// IMPLEMENTS "abstract public function apilable(Carta $carta): bool" in "Mazo"
 	public function apilable(Carta $carta): bool
 	{
 		return true;

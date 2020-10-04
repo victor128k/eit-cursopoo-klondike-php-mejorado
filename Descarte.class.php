@@ -12,17 +12,18 @@ class Descarte extends Mazo
 
 	protected function mostrarContenido(): void
 	{
-		$primeraVisible = $this->ultima - 3;
+		$primeraVisible = $this->numeroDeCartas() - 3;
 		if ($primeraVisible < 0)
 		{
 			$primeraVisible = 0;
 		}
-		for ($i = $primeraVisible; $i < $this->ultima; $i++)
+		for ($i = $primeraVisible; $i < $this->numeroDeCartas(); $i++)
 		{
 			$this->cartas[$i]->mostrar();
 		}
 	}
 
+	// IMPLEMENTS "abstract public function apilable(Carta $carta): bool" in "Mazo"
 	public function apilable(Carta $carta): bool
 	{
 		return true;
